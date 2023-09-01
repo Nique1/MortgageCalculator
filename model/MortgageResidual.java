@@ -19,4 +19,12 @@ public class MortgageResidual {
     public BigDecimal getDuration() {
         return duration;
     }
+
+    @Override
+    public String toString() {
+        return "MortgageResidual{" +
+                "amount=" + amount +
+                ", duration=" + duration +
+                '}';
+    }
 }

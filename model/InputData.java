@@ -15,7 +15,7 @@ public class InputData {
 
     private BigDecimal monthsDuration = BigDecimal.valueOf(180);
 
-    private RateType rateType = RateType.CONSTANT;
+    private RateType rateType = RateType.DECREASING;
 
     //marza banku
     private BigDecimal bankMarginPercent = new BigDecimal("1.9");

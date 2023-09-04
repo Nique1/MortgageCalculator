@@ -3,6 +3,7 @@ package MortgageCalculator.service;
 import MortgageCalculator.model.InputData;
 import MortgageCalculator.model.Rate;
 import MortgageCalculator.model.RateAmounts;
+import MortgageCalculator.model.exception.RateCalculateException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -24,7 +25,7 @@ public class AmountsCalculationServiceImpl implements AmountsCalculationService 
 
             //mimo, ze sa tylko 2 przypadki, wyrzuci nam blad, poniewaz ,musi byc default w razie wystapienia np nulla
             default:
-                throw new RuntimeException("Case not handeld");
+                throw new RateCalculateException();
         }
 
     }
@@ -41,7 +42,7 @@ public class AmountsCalculationServiceImpl implements AmountsCalculationService 
 
             //mimo, ze sa tylko 2 przypadki, wyrzuci nam blad, poniewaz ,musi byc default w razie wystapienia np nulla
             default:
-                throw new RuntimeException("Case not handeld");
+                throw new RateCalculateException();
         }
     }
 

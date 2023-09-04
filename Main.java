@@ -8,8 +8,7 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
         InputData inputData = new InputData()
-                .withAmount(new BigDecimal("29000"))
-                .withMonthsDuration(BigDecimal.valueOf(150));
+                .withMonthsDuration(BigDecimal.valueOf(180));
 
 
         //przyklad dependancy injection
@@ -26,8 +25,10 @@ public class Main {
 
         MortgageCalculationService mortgageCalculationService = new MortgageCalculationServiceImpl(
                 printingService,
-                rateCalculationService
-        );
+                rateCalculationService,
+                //metoda, ktora da implementacje intefejsu w postaci lambdy
+                // metoda wywolana na klasie -> z uzyciem statica
+                SummaryServiceFactory.create());
 
 
         mortgageCalculationService.calculate(inputData);

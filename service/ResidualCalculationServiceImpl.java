@@ -11,7 +11,7 @@ public class ResidualCalculationServiceImpl implements ResidualCalculationServic
     @Override
     public MortgageResidual calculate(RateAmounts rateAmounts, InputData inputData) {
         //kwota kredytu minus kwota kapitalu jaki bedzie splacany
-        BigDecimal residualAmount = inputData.getAmount().subtract(rateAmounts.getCapitalAmount());
+        BigDecimal residualAmount = inputData.getAmount().subtract(rateAmounts.getCapitalAmount()).max(BigDecimal.ZERO);
         BigDecimal residualDuration = inputData.getMonthsDuration().subtract(BigDecimal.ONE);
 
         return new MortgageResidual(residualAmount, residualDuration);
@@ -23,7 +23,7 @@ public class ResidualCalculationServiceImpl implements ResidualCalculationServic
 
         MortgageResidual residual = previousRate.getMortgageResidual();
         //wartosc z poprzedniej raty, ktroa zostala do splacenia minus kwota kapitalu jaka zostala splacona w tym miesiacu
-        BigDecimal residualAmount = residual.getAmount().subtract(rateAmounts.getRateAmount());
+        BigDecimal residualAmount = residual.getAmount().subtract(rateAmounts.getCapitalAmount()).max(BigDecimal.ZERO);
 
         //ilosc miesiecy jakie zostaly do splacenia w poprzedniej racie minus 1
 

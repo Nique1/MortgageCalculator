@@ -1,6 +1,10 @@
 package MortgageCalculator.service;
 
 import MortgageCalculator.model.InputData;
+import MortgageCalculator.model.Rate;
+import MortgageCalculator.model.Summary;
+
+import java.util.List;
 
 public interface PrintingService {
     //constants
@@ -14,7 +18,8 @@ public interface PrintingService {
     //odsetki
     String INTEREST = "INTEREST: ";
     String CAPITAL = "CAPITAL: ";
-    String LEFT = "LEFT: ";
+    String LEFT_AMOUNT = "LEFT AMOUNT: ";
+    String LEFT_MONTHS = "LEFT MONTHS: ";
     String MORTGAGE_AMOUNT = "MORTGAGE AMOUNT: ";
     String MORTGAGE_PERIOD = "MORTGAGE PERIOD: ";
 
@@ -23,4 +28,9 @@ public interface PrintingService {
     String PERCENT = "% ";
 
     void printInputDataInfo(final InputData inputData);
+
+    void printRates(List<Rate> rates);
+
+    void printSummary(Summary summary);
+
 }

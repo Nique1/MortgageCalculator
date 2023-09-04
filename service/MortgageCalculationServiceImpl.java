@@ -2,6 +2,7 @@ package MortgageCalculator.service;
 
 import MortgageCalculator.model.InputData;
 import MortgageCalculator.model.Rate;
+import MortgageCalculator.model.Summary;
 
 import java.util.List;
 
@@ -13,13 +14,17 @@ public class MortgageCalculationServiceImpl implements MortgageCalculationServic
     private final PrintingService printingService;
 
     private final RateCalculationService rateCalculationService;
+
+    private final SummaryService summaryService;
     //w konstruktorze przekazujemy co ten interfejs bedzie implementowalo
     public MortgageCalculationServiceImpl(
             PrintingService printingService,
-            RateCalculationService rateCalculationService
-    ) {
+            RateCalculationService rateCalculationService,
+            SummaryService summaryService) {
+
         this.printingService = printingService;
         this.rateCalculationService = rateCalculationService;
+        this.summaryService = summaryService;
     }
 
     @Override
@@ -32,5 +37,10 @@ public class MortgageCalculationServiceImpl implements MortgageCalculationServic
         //oblicznaie kolejnych rat zgromadzonych w liscie
         List<Rate> rates = rateCalculationService.calculate(inputData);
 
+        //podsumowanie ile 'kosztowal' kredyt
+        Summary summary = summaryService.calculate(rates);
+        printingService.printSummary(summary);
+        //drukowanie rat
+        printingService.printRates(rates);
     }
 }

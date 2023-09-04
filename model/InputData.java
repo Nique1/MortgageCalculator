@@ -7,11 +7,12 @@ import java.time.LocalDate;
 public class InputData {
 
     private static final BigDecimal PERCENT = BigDecimal.valueOf(100);
-    private LocalDate repaymentStartDate = LocalDate.of(2023, 1, 6);
+
+    private LocalDate repaymentStartDate = LocalDate.of(2020, 1, 6);
 
     private BigDecimal wiborPercent = new BigDecimal("1.73");
 
-    private BigDecimal amount = new BigDecimal("300000");
+    private BigDecimal amount = new BigDecimal("298000");
 
     private BigDecimal monthsDuration = BigDecimal.valueOf(180);
 

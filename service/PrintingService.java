@@ -9,6 +9,13 @@ import java.util.List;
 public interface PrintingService {
     //constants
     String INTEREST_SUM = "INTEREST SUM: ";
+    String OVERPAYMENT_PROVISION = "OVERPAYMENT PROVISION ";
+    String LOSTS_SUM = "LOSTS SUM ";
+
+    String OVERPAYMENT_REDUCE_RATE = "OVERPAYMENT REDUCE RATE ";
+    String OVERPAYMENT_REDUCE_PERIOD = "OVERPAYMENT REDUCE PERIOD ";
+    String OVERPAYMENT_FREQUENCY = "OVERPAYMENT FREQUENCY ";
+
     String RATE_NUMBER = "RATE NUMBER: ";
     String YEAR = "YEAR: ";
     String MONTH = " MONTH: ";
@@ -18,6 +25,7 @@ public interface PrintingService {
     //odsetki
     String INTEREST = "INTEREST: ";
     String CAPITAL = "CAPITAL: ";
+    String OVERPAYMENT = "OVERPAYMENT ";
     String LEFT_AMOUNT = "LEFT AMOUNT: ";
     String LEFT_MONTHS = "LEFT MONTHS: ";
     String MORTGAGE_AMOUNT = "MORTGAGE AMOUNT: ";

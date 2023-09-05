@@ -17,11 +17,10 @@ public class Main {
         RateCalculationService rateCalculationService = new RateCalculationServiceImpl(
                 new TimePointServiceImpl(),
                 new AmountsCalculationServiceImpl(),
-                new ResidualCalculationServiceImpl()
-        ){
-
-        };
-
+                new ResidualCalculationServiceImpl(),
+                new OverpaymentCalculationServiceImpl(),
+                new ReferenceCalculationServiceImpl()
+        );
 
         MortgageCalculationService mortgageCalculationService = new MortgageCalculationServiceImpl(
                 printingService,

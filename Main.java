@@ -1,6 +1,9 @@
 package MortgageCalculator;
 
 import MortgageCalculator.model.InputData;
+import MortgageCalculator.model.Overpayment;
+import MortgageCalculator.model.Rate;
+import MortgageCalculator.model.RateType;
 import MortgageCalculator.service.*;
 
 import java.math.BigDecimal;
@@ -8,7 +11,9 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
         InputData inputData = new InputData()
-                .withMonthsDuration(BigDecimal.valueOf(180));
+                .withMonthsDuration(BigDecimal.valueOf(360))
+                .withRateType(RateType.CONSTANT)
+                .withOverpaymentReduceWay(Overpayment.REDUCE_RATE);
 
 
         //przyklad dependancy injection
@@ -34,6 +39,9 @@ public class Main {
 
 
         mortgageCalculationService.calculate(inputData);
+
+        //TODO
+        //usunac blad z koncowa suma LEFT AMOUNT -> powinno byc 0
 
     }
 }

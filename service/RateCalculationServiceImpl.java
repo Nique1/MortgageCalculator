@@ -55,7 +55,7 @@ public class RateCalculationServiceImpl implements RateCalculationService {
             rates.add(nextRate);
             previousRate = nextRate;
 
-            if(mortgageFinished(nextRate)){
+            if (mortgageFinished(nextRate)) {
                 break;
             }
         }
@@ -97,7 +97,7 @@ public class RateCalculationServiceImpl implements RateCalculationService {
 
         MortgageResidual mortgageResidual = residualCalculationService.calculate(rateAmounts, previousRate);
         //obliczanie raty po nadplacie
-        MortgageReference mortgageReference = referenceCalculationService.calculate(inputData);
+        MortgageReference mortgageReference = referenceCalculationService.calculate(inputData, rateAmounts, previousRate);
 
         return new Rate(rateNumber, timePoint, rateAmounts, mortgageResidual, mortgageReference);
     }

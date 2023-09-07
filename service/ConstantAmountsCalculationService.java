@@ -11,4 +11,6 @@ public interface ConstantAmountsCalculationService {
     RateAmounts calculate(InputData inputData, Overpayment overpayment);
 
     RateAmounts calculate(InputData inputData, Overpayment overpayment, Rate previousRate);
+
+
 }

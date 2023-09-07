@@ -6,9 +6,6 @@ import MortgageCalculator.model.Rate;
 import MortgageCalculator.model.RateAmounts;
 import MortgageCalculator.model.exception.RateCalculateException;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class AmountsCalculationServiceImpl implements AmountsCalculationService {
 
     //pola zawierajace klasy, na ktore rozbito ponizsza klase
@@ -57,8 +54,6 @@ public class AmountsCalculationServiceImpl implements AmountsCalculationService 
                 throw new RateCalculateException();
         }
     }
-
-
 
 
 

@@ -8,9 +8,8 @@ import MortgageCalculator.model.RateAmounts;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class DecreasingAmountsCalculationServiceImpl implements DecreasingAmountsCalculationService {
+public class DecreasingAmountsCalculationServiceImpl extends CalculateInterestAmountMethod implements DecreasingAmountsCalculationService {
 
-    private static final BigDecimal YEAR = BigDecimal.valueOf(12);
 
     @Override
     public RateAmounts calculate(InputData inputData, Overpayment overpayment) {
@@ -44,12 +43,6 @@ public class DecreasingAmountsCalculationServiceImpl implements DecreasingAmount
 
         return new RateAmounts(rateAmount, interestAmount, capitalAmount, overpayment);
     }
-
-
-    private BigDecimal calculateInterestAmount(BigDecimal residualAmount, BigDecimal interestPercent) {
-        return residualAmount.multiply(interestPercent).divide(YEAR, 10, RoundingMode.HALF_UP);
-    }
-
 
 
     private BigDecimal calculateCapitalAmount(

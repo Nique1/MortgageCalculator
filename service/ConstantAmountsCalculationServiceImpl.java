@@ -8,9 +8,9 @@ import MortgageCalculator.model.RateAmounts;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class ConstantAmountsCalculationServiceImpl implements ConstantAmountsCalculationService{
+public class ConstantAmountsCalculationServiceImpl extends CalculateInterestAmountMethod implements ConstantAmountsCalculationService{
 
-    private static final BigDecimal YEAR = BigDecimal.valueOf(12);
+
     @Override
     public RateAmounts calculate(InputData inputData, Overpayment overpayment) {
         //parametr Q potrzebny do wylicznia raty kredytu
@@ -52,13 +52,7 @@ public class ConstantAmountsCalculationServiceImpl implements ConstantAmountsCal
     private BigDecimal calculateQ(BigDecimal interestPercent) {
         return interestPercent.divide(YEAR, 10, RoundingMode.HALF_UP).add(BigDecimal.ONE);
     }
-    //TODO
-    //jak to zrobic, zeby ta metoda byla shareowana miedzy 2 klasami ???, zeby nie duplikowac jej definicji
-    //jakos wydzielic tak, zeby byla dostepna w obu klasach
 
-    private BigDecimal calculateInterestAmount(BigDecimal residualAmount, BigDecimal interestPercent) {
-        return residualAmount.multiply(interestPercent).divide(YEAR, 10, RoundingMode.HALF_UP);
-    }
 
     //bug z blednym obliczaniem koncowej raty w porownaniu do pozostalej raty
 

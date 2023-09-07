@@ -75,15 +75,15 @@ public class PrintingServiceImpl implements PrintingService {
 
     @Override
     public void printRates(List<Rate> rates) {
-        String format = "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
-                "%s %s " +
+        String format = "%s %3s | " +
+                "%4s %3s | " +
+                "%2s %3s | " +
+                "%4s %2s | " +
+                "%4s %2s | " +
+                "%4s %8s | " +
+                "%3s %3s | " +
+                "%5s %5s | " +
+                "%5s %10s | " +
                 "%s %s " +
                 "";
 

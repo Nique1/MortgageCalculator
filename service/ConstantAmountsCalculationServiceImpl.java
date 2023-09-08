@@ -4,11 +4,16 @@ import MortgageCalculator.model.InputData;
 import MortgageCalculator.model.Overpayment;
 import MortgageCalculator.model.Rate;
 import MortgageCalculator.model.RateAmounts;
+import MortgageCalculator.utils.CalculationUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class ConstantAmountsCalculationServiceImpl extends CalculateInterestAmountMethod implements ConstantAmountsCalculationService{
+
+//import statyczny
+import static MortgageCalculator.utils.CalculationUtils.calculateInterestAmount;
+
+public class ConstantAmountsCalculationServiceImpl implements ConstantAmountsCalculationService{
 
 
     @Override
@@ -50,7 +55,7 @@ public class ConstantAmountsCalculationServiceImpl extends CalculateInterestAmou
 
 
     private BigDecimal calculateQ(BigDecimal interestPercent) {
-        return interestPercent.divide(YEAR, 10, RoundingMode.HALF_UP).add(BigDecimal.ONE);
+        return interestPercent.divide(CalculationUtils.YEAR, 10, RoundingMode.HALF_UP).add(BigDecimal.ONE);
     }
 
 

@@ -8,7 +8,10 @@ import MortgageCalculator.model.RateAmounts;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class DecreasingAmountsCalculationServiceImpl extends CalculateInterestAmountMethod implements DecreasingAmountsCalculationService {
+//import statyczny
+import static MortgageCalculator.utils.CalculationUtils.calculateInterestAmount;
+
+public class DecreasingAmountsCalculationServiceImpl implements DecreasingAmountsCalculationService {
 
 
     @Override
